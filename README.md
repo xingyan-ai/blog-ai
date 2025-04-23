@@ -23,13 +23,53 @@ blog-ai 是一个基于 Notion API 和 NextJS 实现的、具有 AI 增强功能
 
 ## 快速开始
 
+### 环境准备
+
+- Node.js >= 14
+- 一个Notion账号和数据库
+
+### 安装步骤
+
 1. 复制Notion模板：[获取模板](https://xingyan.notion.site/02ab3b8678004aa69e9e415905ef32a5)
 2. 获取Notion页面ID和Integration Token
-3. 部署到Vercel：[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fxingyan-ai%2Fblog-ai&env=NOTION_PAGE_ID,NOTION_ACCESS_TOKEN&project-name=blog-ai&repository-name=blog-ai)
-4. 配置环境变量
-5. 享受AI增强的博客体验！
+3. 克隆仓库
+```bash
+git clone https://github.com/xingyan-ai/blog-ai.git
+cd blog-ai
+```
+
+4. 安装依赖
+```bash
+yarn install
+```
+
+5. 配置环境变量
+复制`.env.example`文件为`.env.local`并填写必要的配置信息：
+```
+NOTION_PAGE_ID=your-notion-page-id
+```
+
+6. 启动开发服务器
+```bash
+yarn dev
+```
+
+现在你可以访问 `http://localhost:3000` 查看你的博客。
+
+## 项目部署
+
+### 使用Vercel部署
+
+1. Fork本仓库
+2. 在Vercel中导入该项目：[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fxingyan-ai%2Fblog-ai&env=NOTION_PAGE_ID,NOTION_ACCESS_TOKEN&project-name=blog-ai&repository-name=blog-ai)
+3. 配置环境变量
+4. 部署
 
 详细文档请参考：[完整安装文档](https://docs.xingyan.me/blog-ai)
+
+## 自定义配置
+
+你可以通过修改`blog.config.js`文件来自定义博客配置，包括主题、网站信息、插件等。
 
 ## 技术栈
 
@@ -40,10 +80,6 @@ blog-ai 是一个基于 Notion API 和 NextJS 实现的、具有 AI 增强功能
 - **评论**: [Twikoo](https://github.com/imaegoo/twikoo), [Giscus](https://giscus.app/zh-CN)
 - **图标**: [Fontawesome](https://fontawesome.com/v6/icons/)
 
-## 致谢
-
-本项目基于 [NotionNext](https://github.com/tangly1024/NotionNext) 进行开发，感谢原作者的杰出工作。
-
 ## 贡献
 
 欢迎提交PR、Issue或功能建议！任何形式的贡献都将受到高度重视。
@@ -51,3 +87,7 @@ blog-ai 是一个基于 Notion API 和 NextJS 实现的、具有 AI 增强功能
 ## 许可证
 
 The MIT License.
+
+## 致谢
+
+本项目基于 [NotionNext](https://github.com/tangly1024/NotionNext) 进行开发，感谢原作者的杰出工作。
