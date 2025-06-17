@@ -42,17 +42,18 @@ const preBuild = (function () {
     return
   }
   // 删除 public/sitemap.xml 文件 ； 否则会和/pages/sitemap.xml.js 冲突。
-  const sitemapPath = path.resolve(__dirname, 'public', 'sitemap.xml')
-  if (fs.existsSync(sitemapPath)) {
-    fs.unlinkSync(sitemapPath)
-    console.log('Deleted existing sitemap.xml from public directory')
-  }
+  // 临时注释以解决构建问题
+  // const sitemapPath = path.resolve(__dirname, 'public', 'sitemap.xml')
+  // if (fs.existsSync(sitemapPath)) {
+  //   fs.unlinkSync(sitemapPath)
+  //   console.log('Deleted existing sitemap.xml from public directory')
+  // }
 
-  const sitemap2Path = path.resolve(__dirname, 'sitemap.xml')
-  if (fs.existsSync(sitemap2Path)) {
-    fs.unlinkSync(sitemap2Path)
-    console.log('Deleted existing sitemap.xml from root directory')
-  }
+  // const sitemap2Path = path.resolve(__dirname, 'sitemap.xml')
+  // if (fs.existsSync(sitemap2Path)) {
+  //   fs.unlinkSync(sitemap2Path)
+  //   console.log('Deleted existing sitemap.xml from root directory')
+  // }
 })()
 
 /**

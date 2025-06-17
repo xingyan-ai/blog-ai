@@ -3,7 +3,7 @@ import { siteConfig } from '@/lib/config'
 import { getGlobalData, getPostBlocks } from '@/lib/db/getSiteData'
 import { generateRobotsTxt } from '@/lib/robots.txt'
 import { generateRss } from '@/lib/rss'
-import { generateSitemapXml } from '@/lib/sitemap.xml'
+// import { generateSitemapXml } from '@/lib/sitemap.xml' // 临时注释以解决构建问题
 import { DynamicLayout } from '@/themes/theme'
 import { generateRedirectJson } from '@/lib/redirect'
 
@@ -60,7 +60,7 @@ export async function getStaticProps(req) {
   // 生成Feed订阅
   generateRss(props)
   // 生成
-  generateSitemapXml(props)
+  // generateSitemapXml(props) // 临时注释以解决构建问题
   if (siteConfig('UUID_REDIRECT', false, props?.NOTION_CONFIG)) {
     // 生成重定向 JSON
     generateRedirectJson(props)
