@@ -1,0 +1,49 @@
+@import url('https://at.alicdn.com/t/c/font_4902131_mf5n8tfonf.css');
+
+/* 添加一些基础样式确保图标正确显示 */
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  display: inline-block; /* 确保图标是行内块元素 */
+}
+
+/* 确保博客图标大小适中 */
+.icon-blog {
+  font-size: 22px !important;
+}
+
+/* 确保菜单图标大小适中 */
+.icon-caidan {
+  font-size: 22px !important;
+}
+
+/* 为图标添加一些通用样式 */
+.text-white .iconfont {
+  color: white !important;
+}
+
+.text-black .iconfont {
+  color: black !important;
+}
+
+.dark .text-white .iconfont {
+  color: white !important;
+}
+
+.dark .text-black .iconfont {
+  color: black !important;
+}
+
+/* 确保图标在按钮内垂直居中 */
+.flex.items-center .iconfont {
+  vertical-align: middle;
+}
+
+/* 确保图标在黑暗模式也可见 */
+.dark .iconfont.icon-blog,
+.dark .iconfont.icon-caidan {
+  color: white;
+} 

@@ -49,7 +49,7 @@ module.exports = {
   ],
   FONT_AWESOME:
     process.env.NEXT_PUBLIC_FONT_AWESOME_PATH ||
-    'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css' // font-awesome 字体图标地址; 可选 /css/all.min.css ， https://lf9-cdn-tos.bytecdntp.com/cdn/expire-1-M/font-awesome/6.0.0/css/all.min.css
+    'https://at.alicdn.com/t/c/font_4902131_mf5n8tfonf.css' // 替换为阿里巴巴图标库地址(添加https协议)
 
   // END ************网站字体*****************
 }

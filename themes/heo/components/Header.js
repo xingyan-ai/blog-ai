@@ -25,6 +25,9 @@ const Header = props => {
   const router = useRouter()
   const slideOverRef = useRef()
 
+  // 检查是否是about页面，用于隐藏暗色模式按钮
+  const isAboutPage = props.isAboutPage || router.pathname === '/about'
+
   const toggleMenuOpen = () => {
     slideOverRef?.current?.toggleSlideOvers()
   }
@@ -167,21 +170,25 @@ const Header = props => {
 
           {/* 右侧固定 */}
           <div className='flex flex-shrink-0 justify-end items-center w-48'>
-            <RandomPostButton {...props} />
-            <SearchButton {...props} />
-            {!JSON.parse(siteConfig('THEME_SWITCH')) && (
+            {/* about页面隐藏随便逛逛按钮 */}
+            {!isAboutPage && <RandomPostButton {...props} />}
+            {/* about页面隐藏搜索按钮 */}
+            {!isAboutPage && <SearchButton {...props} />}
+            {!JSON.parse(siteConfig('THEME_SWITCH')) && !isAboutPage && (
               <div className='hidden md:block'>
                 <DarkModeButton {...props} />
               </div>
             )}
             <ReadingProgress />
 
-            {/* 移动端菜单按钮 */}
-            <div
-              onClick={toggleMenuOpen}
-              className='flex lg:hidden w-8 justify-center items-center h-8 cursor-pointer'>
-              <i className='fas fa-bars' />
-            </div>
+            {/* 移动端菜单按钮 - about页面隐藏 */}
+            {!isAboutPage && (
+              <div
+                onClick={toggleMenuOpen}
+                className='flex lg:hidden w-8 justify-center items-center h-8 cursor-pointer'>
+                <span className="iconfont icon-caidan"></span>
+              </div>
+            )}
           </div>
 
           {/* 右边侧拉抽屉 */}

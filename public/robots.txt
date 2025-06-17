@@ -1,0 +1,12 @@
+
+    # *
+    User-agent: *
+    Allow: /
+  
+    # Host
+    Host: http://blog.xingyan.me
+  
+    # Sitemaps
+    Sitemap: http://blog.xingyan.me/sitemap.xml
+  
+    

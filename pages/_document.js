@@ -1,43 +1,18 @@
 // eslint-disable-next-line @next/next/no-document-import-in-page
 import BLOG from '@/blog.config'
-import Document, { Head, Html, Main, NextScript } from 'next/document'
+import { Html, Head, Main, NextScript } from 'next/document'
 
-class MyDocument extends Document {
-  static async getInitialProps(ctx) {
-    const initialProps = await Document.getInitialProps(ctx)
-    return { ...initialProps }
-  }
-
-  render() {
-    return (
-      <Html lang={BLOG.LANG}>
-        <Head>
-          {/* 预加载字体 */}
-          {BLOG.FONT_AWESOME && (
-            <>
-              <link
-                rel='preload'
-                href={BLOG.FONT_AWESOME}
-                as='style'
-                crossOrigin='anonymous'
-              />
-              <link
-                rel='stylesheet'
-                href={BLOG.FONT_AWESOME}
-                crossOrigin='anonymous'
-                referrerPolicy='no-referrer'
-              />
-            </>
-          )}
-        </Head>
-
-        <body>
-          <Main />
-          <NextScript />
-        </body>
-      </Html>
-    )
-  }
+export default function Document() {
+  return (
+    <Html lang={BLOG.LANG}>
+      <Head>
+        {/* 添加iconfont直接引用链接，确保加载 */}
+        <link rel="stylesheet" href="https://at.alicdn.com/t/c/font_4902131_mf5n8tfonf.css" />
+      </Head>
+      <body>
+        <Main />
+        <NextScript />
+      </body>
+    </Html>
+  )
 }
-
-export default MyDocument
