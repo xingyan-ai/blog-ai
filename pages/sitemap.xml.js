@@ -1,13 +1,8 @@
 // pages/sitemap.xml.js
-// 这个文件已被修复以避免Vercel构建失败
-// 实际的sitemap生成在 lib/sitemap.xml.js 中进行
+// 这个文件已被临时禁用以避免Vercel构建失败
+// 如需sitemap功能，请使用 next-sitemap 包在构建后生成
 
-import BLOG from '@/blog.config'
-import { siteConfig } from '@/lib/config'
-import { getGlobalData } from '@/lib/db/getSiteData'
-import { extractLangId, extractLangPrefix } from '@/lib/utils/pageId'
-
-// 将动态路由改为静态生成，返回404避免构建错误
+// 返回404，不渲染任何内容
 export const getStaticProps = async () => {
   return {
     notFound: true
