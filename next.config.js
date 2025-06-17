@@ -4,6 +4,14 @@ const path = require('path')
 const BLOG = require('./blog.config')
 const { extractLangPrefix } = require('./lib/utils/pageId')
 
+// 确保构建时环境变量正确设置
+if (process.env.npm_lifecycle_event === 'build' || process.env.VERCEL === '1') {
+  process.env.NODE_ENV = 'production'
+  if (!process.env.VERCEL_ENV) {
+    process.env.VERCEL_ENV = 'production'
+  }
+}
+
 // 打包时是否分析代码
 const withBundleAnalyzer = require('@next/bundle-analyzer')({
   enabled: BLOG.BUNDLE_ANALYZER
