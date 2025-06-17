@@ -15,7 +15,12 @@ module.exports = {
     process.env.ENABLE_CACHE ||
     process.env.npm_lifecycle_event === 'build' ||
     process.env.npm_lifecycle_event === 'export', // 在打包过程中默认开启缓存，开发或运行时开启此功能意义不大。
-  isProd: process.env.VERCEL_ENV === 'production' || process.env.EXPORT, // distinguish between development and production environment (ref: https://vercel.com/docs/environment-variables#system-environment-variables)
+  isProd: process.env.VERCEL_ENV === 'production' || 
+          process.env.VERCEL_ENV === 'preview' || 
+          process.env.NODE_ENV === 'production' || 
+          process.env.VERCEL === '1' || 
+          process.env.npm_lifecycle_event === 'build' || 
+          process.env.EXPORT, // 更完善的生产环境检测，确保在 Vercel 构建时正确识别
   BUNDLE_ANALYZER: process.env.ANALYZE === 'true' || false, // 是否展示编译依赖内容与大小
   VERSION: (() => {
     try {
