@@ -232,6 +232,8 @@ const nextConfig = {
   ) {
     // export 静态导出时 忽略有getServerSideProps的动态页面，避免构建冲突
     const pages = { ...defaultPathMap }
+    
+    // 删除使用 getServerSideProps 的页面
     delete pages['/sitemap.xml']
     delete pages['/auth']
     delete pages['/auth/result']
@@ -242,6 +244,17 @@ const nextConfig = {
         delete pages[page]
       }
     })
+    
+    // 排除可能的多语言版本的auth页面
+    const langPrefixes = ['zh-CN', 'en-US', 'en', 'zh']
+    langPrefixes.forEach(lang => {
+      delete pages[`/${lang}/auth`]
+      delete pages[`/${lang}/auth/result`]
+      delete pages[`/${lang}/sitemap.xml`]
+    })
+    
+    console.log('Excluded auth pages from static export')
+    console.log('Final pages for export:', Object.keys(pages).length)
     
     return pages
   },

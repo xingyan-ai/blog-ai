@@ -15,17 +15,27 @@ const UI = props => {
   const { redirect_pathname, redirect_query } = props
   const router = useRouter()
   useEffect(() => {
-    router?.push({ pathname: redirect_pathname, query: redirect_query })
+    if (redirect_pathname) {
+      router?.push({ pathname: redirect_pathname, query: redirect_query })
+    }
   }, [])
   return <Slug {...props} />
 }
 
 /**
  * 服务端接收参数处理
+ * 在静态导出模式下不执行此函数
  * @param {*} ctx
  * @returns
  */
 export const getServerSideProps = async ctx => {
+  // 在静态导出或 Vercel 构建时跳过
+  if (process.env.EXPORT || process.env.VERCEL === '1' || process.env.npm_lifecycle_event === 'build') {
+    return {
+      notFound: true // 返回 404，这样这个页面就不会被包含在静态导出中
+    }
+  }
+
   const from = `auth`
   const props = await getGlobalData({ from })
   delete props.allPages
