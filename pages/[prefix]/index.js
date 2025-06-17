@@ -96,7 +96,16 @@ const Slug = props => {
 }
 
 export async function getStaticPaths() {
-  if (!BLOG.isProd) {
+  // 更完善的生产环境检测，确保在 Vercel 构建时正确识别
+  const isProd = process.env.VERCEL_ENV === 'production' || 
+                 process.env.VERCEL_ENV === 'preview' || 
+                 process.env.NODE_ENV === 'production' || 
+                 process.env.VERCEL === '1' || 
+                 process.env.npm_lifecycle_event === 'build' || 
+                 process.env.EXPORT || 
+                 BLOG.isProd
+
+  if (!isProd) {
     return {
       paths: [],
       fallback: true
@@ -105,11 +114,30 @@ export async function getStaticPaths() {
 
   const from = 'slug-paths'
   const { allPages } = await getGlobalData({ from })
+  
+  // 添加错误处理和数据验证
+  if (!allPages || !Array.isArray(allPages)) {
+    console.warn('allPages is not available or not an array')
+    return {
+      paths: [],
+      fallback: true
+    }
+  }
+
   const paths = allPages
-    ?.filter(row => checkSlugHasNoSlash(row))
+    ?.filter(row => {
+      // 添加更严格的数据验证
+      if (!row || !row.slug || typeof row.slug !== 'string') {
+        return false
+      }
+      return checkSlugHasNoSlash(row)
+    })
     .map(row => ({ params: { prefix: row.slug } }))
+    
+  console.log(`Generated ${paths?.length || 0} paths for [prefix] route`)
+  
   return {
-    paths: paths,
+    paths: paths || [],
     fallback: true
   }
 }

@@ -16,7 +16,16 @@ const PrefixSlug = props => {
 }
 
 export async function getStaticPaths() {
-  if (!BLOG.isProd) {
+  // 更完善的生产环境检测，确保在 Vercel 构建时正确识别
+  const isProd = process.env.VERCEL_ENV === 'production' || 
+                 process.env.VERCEL_ENV === 'preview' || 
+                 process.env.NODE_ENV === 'production' || 
+                 process.env.VERCEL === '1' || 
+                 process.env.npm_lifecycle_event === 'build' || 
+                 process.env.EXPORT || 
+                 BLOG.isProd
+
+  if (!isProd) {
     return {
       paths: [],
       fallback: true
@@ -26,20 +35,38 @@ export async function getStaticPaths() {
   const from = 'slug-paths'
   const { allPages } = await getGlobalData({ from })
 
+  // 添加错误处理和数据验证
+  if (!allPages || !Array.isArray(allPages)) {
+    console.warn('allPages is not available or not an array')
+    return {
+      paths: [],
+      fallback: true
+    }
+  }
+
   // 根据slug中的 / 分割成prefix和slug两个字段 ; 例如 article/test
   // 最终用户可以通过  [domain]/[prefix]/[slug] 路径访问，即这里的 [domain]/article/test
   const paths = allPages
-    ?.filter(row => checkSlugHasOneSlash(row))
-    .map(row => ({
-      params: { prefix: row.slug.split('/')[0], slug: row.slug.split('/')[1] }
-    }))
+    ?.filter(row => {
+      // 添加更严格的数据验证
+      if (!row || !row.slug || typeof row.slug !== 'string') {
+        return false
+      }
+      return checkSlugHasOneSlash(row)
+    })
+    .map(row => {
+      const slugParts = row.slug.split('/')
+      if (slugParts.length >= 2) {
+        return { params: { prefix: slugParts[0], slug: slugParts[1] } }
+      }
+      return null
+    })
+    .filter(Boolean) // 移除 null 值
 
-  // 增加一种访问路径 允许通过 [category]/[slug] 访问文章
-  // 例如文章slug 是 test ，然后文章的分类category是 production
-  // 则除了 [domain]/[slug] 以外，还支持分类名访问: [domain]/[category]/[slug]
+  console.log(`Generated ${paths?.length || 0} paths for [prefix]/[slug] route`)
 
   return {
-    paths: paths,
+    paths: paths || [],
     fallback: true
   }
 }
