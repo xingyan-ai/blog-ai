@@ -69,13 +69,13 @@ const LayoutBase = props => {
           <Hero {...props} />
         </>
       ) : null}
-      {(fullWidth || router.pathname === '/about') ? null : <PostHeader {...props} isDarkMode={isDarkMode} />}
+      {fullWidth ? null : <PostHeader {...props} isDarkMode={isDarkMode} />}
     </header>
   )
 
   // 右侧栏 用户信息+标签列表
   const slotRight =
-    router.pathname === '/about' || router.route === '/404' || fullWidth ? null : <SideRight {...props} />
+    router.route === '/404' || fullWidth ? null : <SideRight {...props} />
 
   const maxWidth = fullWidth ? 'max-w-[96rem] mx-auto' : 'max-w-[86rem]' // 普通最大宽度是86rem和顶部菜单栏对齐，留空则与窗口对齐
 
@@ -103,30 +103,28 @@ const LayoutBase = props => {
       {/* 主区块 */}
       <main
         id='wrapper-outer'
-        className={`flex-grow w-full ${router.pathname === '/about' ? 'max-w-full h-full' : maxWidth} mx-auto relative md:px-5`}>
+        className={`flex-grow w-full ${maxWidth} mx-auto relative md:px-5`}>
         <div
           id='container-inner'
-          className={`${router.pathname === '/about' ? '' : (HEO_HERO_BODY_REVERSE ? 'flex-row-reverse' : '')} w-full mx-auto ${router.pathname === '/about' ? '' : 'lg:flex justify-center'} relative z-10`}>
-          <div className={`w-full h-auto ${className || ''} ${router.pathname === '/about' ? 'px-0 md:px-0' : ''}`}>
+          className={`${HEO_HERO_BODY_REVERSE ? 'flex-row-reverse' : ''} w-full mx-auto lg:flex justify-center relative z-10`}>
+          <div className={`w-full h-auto ${className || ''}`}>
             {/* 主区上部嵌入 */}
             {slotTop}
             {children}
           </div>
 
-          {router.pathname !== '/about' && (
-            <>
-              <div className='lg:px-2'></div>
-              <div className='hidden xl:block'>
-                {/* 主区快右侧 */}
-                {slotRight}
-              </div>
-            </>
-          )}
+          <>
+          <div className='lg:px-2'></div>
+          <div className='hidden xl:block'>
+            {/* 主区快右侧 */}
+            {slotRight}
+          </div>
+          </>
         </div>
       </main>
 
-      {/* 页脚 - about页面不显示 */}
-      {router.pathname !== '/about' && <Footer />}
+      {/* 页脚 */}
+      <Footer />
 
       {HEO_LOADING_COVER && <LoadingCover />}
     </div>
@@ -501,24 +499,8 @@ const LayoutTagIndex = props => {
   )
 }
 
-/**
- * About页面布局 - 专门用于iframe嵌入的关于页面
- * @param {*} props
- * @returns
- */
-const LayoutAbout = props => {
-  const { children } = props
-
-  return (
-    <div className='w-full'>
-      {children}
-    </div>
-  )
-}
-
 export {
   Layout404,
-  LayoutAbout,
   LayoutArchive,
   LayoutBase,
   LayoutCategoryIndex,
