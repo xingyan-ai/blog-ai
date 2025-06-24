@@ -35,7 +35,7 @@ const Footer = () => {
           <div className='flex gap-x-1'>
             <CopyRightDate />
             <a
-              href={'/about'}
+              href={'/'}
               className='underline font-semibold dark:text-gray-300 '>
               {siteConfig('AUTHOR')}
             </a>
