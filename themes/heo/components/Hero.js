@@ -84,7 +84,7 @@ function Banner(props) {
       <div
         id='banner-title'
         className='z-10 flex flex-col absolute top-10 left-10'>
-        <div className='text-4xl font-bold mb-3  dark:text-white'>
+        <div className='text-3xl font-light mb-3  dark:text-white'>
           {siteConfig('HEO_HERO_TITLE_1', null, CONFIG)}
           <br />
           {siteConfig('HEO_HERO_TITLE_2', null, CONFIG)}
@@ -105,7 +105,7 @@ function Banner(props) {
           'z-20 rounded-xl overflow-hidden opacity-0 group-hover:opacity-100 duration-300 transition-all bg-[#4259efdd] dark:bg-[#dca846] dark:text-white cursor-pointer absolute w-full h-full top-0 flex justify-start items-center'
         }>
         <div className='ml-12 -translate-x-32 group-hover:translate-x-0 duration-300 transition-all ease-in'>
-          <div className='text-7xl text-white font-extrabold'>{coverTitle}</div>
+          <div className='text-5xl text-white font-normal'>{coverTitle}</div>
           <div className='-ml-3 text-gray-300'>
             <ArrowSmallRight className={'w-24 h-24 stroke-2'} />
           </div>
@@ -179,7 +179,7 @@ function GroupMenu() {
       <Link
         href={url_1}
         className='group relative overflow-hidden bg-gradient-to-r from-blue-500 to-blue-400 flex h-20 justify-start items-center text-white rounded-xl xl:hover:w-1/2 xl:w-1/3 transition-all duration-500 ease-in'>
-        <div className='font-bold lg:text-lg  pl-5 relative -mt-2'>
+        <div className='font-light lg:text-base  pl-5 relative -mt-2'>
           {title_1}
           <span className='absolute -bottom-0.5 left-5 w-5 h-0.5 bg-white rounded-full'></span>
         </div>
@@ -190,7 +190,7 @@ function GroupMenu() {
       <Link
         href={url_2}
         className='group relative overflow-hidden bg-gradient-to-r from-red-500 to-yellow-500 flex h-20 justify-start items-center text-white rounded-xl xl:hover:w-1/2 xl:w-1/3 transition-all duration-500 ease-in'>
-        <div className='font-bold lg:text-lg pl-5 relative -mt-2'>
+        <div className='font-medium lg:text-base pl-5 relative -mt-2'>
           {title_2}
           <span className='absolute -bottom-0.5 left-5 w-5 h-0.5 bg-white rounded-full'></span>
         </div>
@@ -202,7 +202,7 @@ function GroupMenu() {
       <Link
         href={url_3}
         className='group relative overflow-hidden bg-gradient-to-r from-teal-300 to-cyan-300 hidden h-20 xl:flex justify-start items-center text-white rounded-xl xl:hover:w-1/2 xl:w-1/3 transition-all duration-500 ease-in'>
-        <div className='font-bold text-lg pl-5 relative -mt-2'>
+        <div className='font-medium text-base pl-5 relative -mt-2'>
           {title_3}
           <span className='absolute -bottom-0.5 left-5 w-5 h-0.5 bg-white rounded-full'></span>
         </div>
@@ -243,11 +243,11 @@ function TopGroup(props) {
               <div className='cursor-pointer h-[164px] group relative flex flex-col w-52 xl:w-full overflow-hidden shadow bg-white dark:bg-black dark:text-white rounded-xl'>
                 <LazyImage
                   priority={index === 0}
-                  className='h-24 object-cover'
+                  className='h-24 aspect-[7/4] object-cover'
                   alt={p?.title}
                   src={p?.pageCoverThumbnail || siteInfo?.pageCover}
                 />
-                <div className='group-hover:text-indigo-600 dark:group-hover:text-yellow-600 line-clamp-2 overflow-hidden m-2 font-semibold'>
+                <div className='group-hover:text-indigo-600 dark:group-hover:text-yellow-600 line-clamp-2 overflow-hidden m-2 font-light'>
                   {p?.title}
                 </div>
                 {/* hover 悬浮的 ‘荐’ 字 */}

@@ -46,7 +46,7 @@ const BlogPostArchive = ({ posts = [], archiveTitle, siteInfo }) => {
                   <div>
                     <Link href={post?.href} passHref legacyBehavior>
                       <LazyImage
-                        className={'rounded-xl bg-center bg-cover w-40 h-24'}
+                        className={'rounded-xl bg-center bg-cover w-28 h-16 aspect-[7/4] object-cover'}
                         src={post?.pageCoverThumbnail}
                       />
                     </Link>

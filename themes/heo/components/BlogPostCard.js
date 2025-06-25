@@ -33,16 +33,16 @@ const BlogPostCard = ({ index, post, showSummary, siteInfo }) => {
       <div
         data-wow-delay='.2s'
         className={
-          (POST_TWO_COLS ? '2xl:h-96 2xl:flex-col' : '') +
-          ' wow fadeInUp border bg-white dark:bg-[#1e1e1e] flex mb-4 flex-col h-[23rem] md:h-52 md:flex-row  group w-full dark:border-gray-600 hover:border-indigo-600  dark:hover:border-yellow-600 duration-300 transition-colors justify-between overflow-hidden rounded-xl'
+          (POST_TWO_COLS ? 'md:h-auto md:flex-col' : '') +
+          ' wow fadeInUp border bg-white dark:bg-[#1e1e1e] flex mb-4 flex-col h-auto md:h-52 md:flex-row  group w-full dark:border-gray-600 hover:border-indigo-600  dark:hover:border-yellow-600 duration-300 transition-colors justify-between overflow-hidden rounded-xl'
         }>
         {/* 图片封面 */}
         {showPageCover && (
           <Link href={post?.href} passHref legacyBehavior>
             <div
               className={
-                (POST_TWO_COLS ? ' 2xl:w-full' : '') +
-                ' w-full md:w-5/12 overflow-hidden cursor-pointer select-none'
+                (POST_TWO_COLS ? ' md:w-full md:aspect-[7/4]' : '') +
+                ' w-full md:w-5/12 aspect-[7/4] overflow-hidden cursor-pointer select-none'
               }>
               <LazyImage
                 priority={index === 0}
@@ -57,8 +57,8 @@ const BlogPostCard = ({ index, post, showSummary, siteInfo }) => {
         {/* 文字区块 */}
         <div
           className={
-            (POST_TWO_COLS ? '2xl:p-4 2xl:h-48 2xl:w-full' : '') +
-            ' flex p-6  flex-col justify-between h-48 md:h-full w-full md:w-7/12'
+            (POST_TWO_COLS ? 'md:p-4 md:h-auto md:w-full' : '') +
+            ' flex p-6  flex-col justify-between h-auto md:h-full w-full md:w-7/12'
           }>
           <header>
             {/* 分类 */}
@@ -68,7 +68,7 @@ const BlogPostCard = ({ index, post, showSummary, siteInfo }) => {
                 <Link
                   passHref
                   href={`/category/${post.category}`}
-                  className='cursor-pointer text-xs font-normal menu-link '>
+                  className='cursor-pointer text-xs font-light menu-link '>
                   {post.category}
                 </Link>
               </div>
@@ -79,7 +79,7 @@ const BlogPostCard = ({ index, post, showSummary, siteInfo }) => {
               href={post?.href}
               passHref
               className={
-                ' group-hover:text-indigo-700 dark:hover:text-yellow-700 dark:group-hover:text-yellow-600 text-black dark:text-gray-100  line-clamp-2 replace cursor-pointer text-xl font-extrabold leading-tight'
+                ' group-hover:text-indigo-700 dark:hover:text-yellow-700 dark:group-hover:text-yellow-600 text-black dark:text-gray-100  line-clamp-2 replace cursor-pointer text-xl font-normal leading-tight'
               }>
               {siteConfig('POST_TITLE_ICON') && (
                 <NotionIcon
