@@ -144,9 +144,11 @@ const Header = props => {
             ${fixedNav ? 'fixed' : 'relative bg-transparent'} 
             ${textWhite ? 'text-white ' : 'text-black dark:text-white'}  
             ${navBgWhite ? 'bg-white dark:bg-[#18171d] shadow' : 'bg-transparent'}`}>
-        <div className='flex h-full mx-auto justify-between items-center max-w-[86rem] px-6'>
+        <div className='flex h-full mx-auto justify-between items-center max-w-[86rem] px-12'>
           {/* 左侧logo */}
-          <Logo {...props} />
+          <div className='flex flex-shrink-0 justify-start items-center w-48'>
+            <Logo {...props} />
+          </div>
 
           {/* 中间菜单 */}
           <div

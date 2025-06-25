@@ -60,11 +60,11 @@ export async function getStaticPaths() {
       const slugParts = row.slug.split('/')
       if (slugParts.length >= 3) {
         return {
-          params: {
+      params: {
             prefix: slugParts[0],
             slug: slugParts[1],
             suffix: slugParts.slice(2)
-          }
+      }
         }
       }
       return null

@@ -68,6 +68,9 @@ module.exports = {
         'screen-3xl': '1440px',
         'screen-4xl': '1560px'
       },
+      width: {
+        '75': '300px'
+      },
       boxShadow: {
         input: '0px 7px 20px rgba(0, 0, 0, 0.03)',
         form: '0px 1px 55px -11px rgba(0, 0, 0, 0.01)',

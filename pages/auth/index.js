@@ -16,7 +16,7 @@ const UI = props => {
   const router = useRouter()
   useEffect(() => {
     if (redirect_pathname) {
-      router?.push({ pathname: redirect_pathname, query: redirect_query })
+    router?.push({ pathname: redirect_pathname, query: redirect_query })
     }
   }, [])
   return <Slug {...props} />

@@ -2,6 +2,38 @@
 @tailwind components;
 @tailwind utilities;
 
+/* 菜单悬停效果 */
+.menu-item-simple:hover {
+  background-color: #425AEF !important;
+  color: white !important;
+}
+
+.menu-item-dropdown:hover {
+  background-color: #425AEF !important;
+  color: white !important;
+}
+
+.menu-item-sub:hover {
+  background-color: #425AEF !important;
+  color: white !important;
+}
+
+/* 深色模式下的菜单悬停效果 */
+.dark .menu-item-simple:hover {
+  background-color: #FFC748 !important;
+  color: white !important;
+}
+
+.dark .menu-item-dropdown:hover {
+  background-color: #FFC748 !important;
+  color: white !important;
+}
+
+.dark .menu-item-sub:hover {
+  background-color: #FFC748 !important;
+  color: white !important;
+}
+
 html {
   overflow-x: hidden;
 }

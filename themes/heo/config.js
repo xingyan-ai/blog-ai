@@ -7,10 +7,7 @@ const CONFIG = {
   HEO_SITE_CREATE_TIME: '2025-04-14', // 建站日期，用于计算网站运行的第几天
 
   // 首页顶部通知条滚动内容，如不需要可以留空 []
-  HEO_NOTICE_BAR: [
-    { title: '欢迎来到我的博客'},
-    { title: '祝您有所收获～'}
-  ],
+  HEO_NOTICE_BAR: [],
 
   // 英雄区左右侧组件颠倒位置
   HEO_HERO_REVERSE: false,
