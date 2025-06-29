@@ -48,7 +48,8 @@ export const MenuListTop = props => {
     <>
       <nav
         id='nav-mobile'
-        className='leading-8 justify-center font-medium text-base w-full flex space-x-1'>
+        className='leading-8 justify-center w-full flex space-x-1'
+        style={{ fontSize: '18px', fontWeight: '700' }}>
         {links?.map(
           (link, index) =>
             link && link.show && <MenuItemDrop key={index} link={link} />

@@ -57,7 +57,7 @@ export default function PostRecommend({ recommendPosts, siteInfo }) {
                 />
                 {/* 卡片的阴影遮罩，为了凸显图片上的文字 */}
                 <div className='h-3/4 w-full absolute left-0 bottom-0'>
-                  <div className='h-full w-full absolute opacity-80 group-hover:opacity-100 transition-all duration-1000 bg-gradient-to-b from-transparent to-black'></div>
+                  <div className='h-full w-full absolute opacity-80 group-hover:opacity-100 transition-all duration-1000 bg-gradient-to-b from-transparent to-blue-900'></div>
                 </div>
               </div>
             </Link>

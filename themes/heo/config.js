@@ -15,9 +15,9 @@ const CONFIG = {
   HEO_HERO_BODY_REVERSE: false,
 
   // 英雄区(首页顶部大卡)
-  HEO_HERO_TITLE_1: '站在产品',
-  HEO_HERO_TITLE_2: '与人文的十字路口',
-  HEO_HERO_TITLE_3: 'xingyanai.info',
+  HEO_HERO_TITLE_1: '站在产品与人文',
+  HEO_HERO_TITLE_2: 'の十字路口',
+  HEO_HERO_TITLE_3: 'blog.xingyan.me',
   HEO_HERO_TITLE_4: '新版上线',
   HEO_HERO_TITLE_5: '我的摄影展网站发布啦',
   HEO_HERO_TITLE_LINK: 'https://gallery.xingyan.me/',
@@ -51,7 +51,7 @@ const CONFIG = {
   HEO_INFO_CARD_URL2: 'https://github.com/tangly1024',
   HEO_INFO_CARD_ICON2: 'fab fa-github',
   HEO_INFO_CARD_URL3: 'https://www.tangly1024.com',
-  HEO_INFO_CARD_TEXT3: '了解更多',
+  HEO_INFO_CARD_TEXT3: 'More',
 
   // 用户技能图标
   HEO_GROUP_ICONS: [

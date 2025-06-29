@@ -35,14 +35,17 @@ const Header = props => {
   const scrollTrigger = useCallback(
     throttle(() => {
       const scrollS = window.scrollY
+      // 使用post来判断是否是文章详情页
+      const isPostPage = props.post && document?.querySelector('#post-bg')
+      
       // 导航栏设置 白色背景
       if (scrollS <= 1) {
         setFixedNav(false)
         setBgWhite(false)
         setTextWhite(false)
 
-        // 文章详情页特殊处理
-        if (document?.querySelector('#post-bg')) {
+        // 只在文章详情页特殊处理
+        if (isPostPage) {
           setFixedNav(true)
           setTextWhite(true)
         }
@@ -52,7 +55,8 @@ const Header = props => {
         setTextWhite(false)
         setBgWhite(true)
       }
-    }, 100)
+    }, 100),
+    [props.post]
   )
   useEffect(() => {
     scrollTrigger()
@@ -168,20 +172,22 @@ const Header = props => {
           </div>
 
           {/* 右侧固定 */}
-          <div className='flex flex-shrink-0 justify-end items-center w-48'>
-            <RandomPostButton {...props} />
-            <SearchButton {...props} />
-            {!JSON.parse(siteConfig('THEME_SWITCH')) && (
-              <div className='hidden md:block'>
-                <DarkModeButton {...props} />
-              </div>
-            )}
-            <ReadingProgress />
+          <div className='flex flex-shrink-0 justify-end items-center min-w-56 gap-2 pr-0'>
+            <div className='flex items-center gap-1'>
+              <RandomPostButton {...props} />
+              <SearchButton {...props} />
+              {!JSON.parse(siteConfig('THEME_SWITCH')) && (
+                <div className='hidden md:block'>
+                  <DarkModeButton {...props} />
+                </div>
+              )}
+              <ReadingProgress />
+            </div>
 
             {/* 移动端菜单按钮 */}
             <div
               onClick={toggleMenuOpen}
-              className='flex lg:hidden w-8 justify-center items-center h-8 cursor-pointer'>
+              className='flex lg:hidden w-8 justify-center items-center h-8 cursor-pointer ml-2'>
                 <span className="iconfont icon-caidan"></span>
             </div>
           </div>

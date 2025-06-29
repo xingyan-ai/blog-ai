@@ -40,7 +40,9 @@ export const MenuItemDrop = ({ link }) => {
           href={link?.href}
           className='menu-item-simple flex justify-center items-center px-4 py-1.5 no-underline tracking-widest transition-all duration-75 text-gray-800 dark:text-gray-200'
           style={{
-            borderRadius: '50px'
+            borderRadius: '50px',
+            fontSize: '18px',
+            fontWeight: '700'
           }}>
           {link?.icon && <i className={link?.icon + ' mr-2'} />}{link?.name}
         </Link>
@@ -51,7 +53,9 @@ export const MenuItemDrop = ({ link }) => {
                     <div 
             className='menu-item-dropdown cursor-pointer flex justify-center items-center px-4 py-1.5 no-underline tracking-widest transition-all duration-75 relative text-gray-800 dark:text-gray-200'
             style={{
-              borderRadius: '50px'
+              borderRadius: '50px',
+              fontSize: '18px',
+              fontWeight: '700'
             }}>
             {link?.icon && <i className={link?.icon + ' mr-2'} />}{link?.name}
             {/* 主菜单下方的安全区域 */}

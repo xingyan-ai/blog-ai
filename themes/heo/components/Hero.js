@@ -83,8 +83,8 @@ function Banner(props) {
       className='hidden xl:flex xl:flex-col group h-full bg-white dark:bg-[#1e1e1e] rounded-xl border dark:border-gray-700 mb-3 relative overflow-hidden'>
       <div
         id='banner-title'
-        className='z-10 flex flex-col absolute top-10 left-10'>
-        <div className='text-3xl font-light mb-3  dark:text-white'>
+        className='z-10 flex flex-col absolute top-6 left-10'>
+        <div className='text-2xl font-bold mb-3  dark:text-white'>
           {siteConfig('HEO_HERO_TITLE_1', null, CONFIG)}
           <br />
           {siteConfig('HEO_HERO_TITLE_2', null, CONFIG)}
@@ -105,10 +105,10 @@ function Banner(props) {
           'z-20 rounded-xl overflow-hidden opacity-0 group-hover:opacity-100 duration-300 transition-all bg-[#4259efdd] dark:bg-[#dca846] dark:text-white cursor-pointer absolute w-full h-full top-0 flex justify-start items-center'
         }>
         <div className='ml-12 -translate-x-32 group-hover:translate-x-0 duration-300 transition-all ease-in'>
-          <div className='text-5xl text-white font-normal'>{coverTitle}</div>
-          <div className='-ml-3 text-gray-300'>
-            <ArrowSmallRight className={'w-24 h-24 stroke-2'} />
-          </div>
+                     <div className='text-4xl text-white font-bold'>{coverTitle}</div>
+           <div className='-ml-5 text-gray-300 mt-2'>
+             <ArrowSmallRight className={'w-20 h-20 stroke-2'} />
+           </div>
         </div>
       </div>
     </div>
@@ -179,7 +179,7 @@ function GroupMenu() {
       <Link
         href={url_1}
         className='group relative overflow-hidden bg-gradient-to-r from-blue-500 to-blue-400 flex h-20 justify-start items-center text-white rounded-xl xl:hover:w-1/2 xl:w-1/3 transition-all duration-500 ease-in'>
-        <div className='font-light lg:text-base  pl-5 relative -mt-2'>
+        <div className='font-medium lg:text-base  pl-5 relative -mt-2'>
           {title_1}
           <span className='absolute -bottom-0.5 left-5 w-5 h-0.5 bg-white rounded-full'></span>
         </div>

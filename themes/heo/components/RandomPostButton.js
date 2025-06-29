@@ -19,8 +19,8 @@ export default function RandomPostButton(props) {
   }
 
   return (
-        <div title={locale.MENU.WALK_AROUND} className='cursor-pointer hover:bg-black hover:bg-opacity-10 rounded-full w-10 h-10 flex justify-center items-center duration-200 transition-all' onClick={handleClick}>
-            <i className="fa-solid fa-podcast"></i>
+        <div title={locale.MENU.WALK_AROUND} className='cursor-pointer hover:bg-black hover:bg-opacity-10 rounded-full w-10 h-10 flex justify-center items-center duration-200 transition-all opacity-100 visible text-gray-600 dark:text-gray-300' onClick={handleClick}>
+            <i className="fa-solid fa-podcast opacity-100 visible text-current"></i>
         </div>
   )
 }
