@@ -18,7 +18,7 @@ export function AnalyticsCard(props) {
 
   const { postCount } = props
   return <>
-        <div className='text-md flex flex-col space-y-1 justify-center px-3'>
+        <div className='text-sm flex flex-col space-y-1 justify-center px-3'>
             <div className='inline'>
                 <div className='flex justify-between'>
                     <div>{postCountTitle}</div>

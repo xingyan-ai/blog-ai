@@ -38,22 +38,30 @@ const Header = props => {
       // 使用post来判断是否是文章详情页
       const isPostPage = props.post && document?.querySelector('#post-bg')
       
-      // 导航栏设置 白色背景
-      if (scrollS <= 1) {
-        setFixedNav(false)
-        setBgWhite(false)
-        setTextWhite(false)
-
-        // 只在文章详情页特殊处理
-        if (isPostPage) {
+      if (isPostPage) {
+        // 文章详情页的特殊逻辑
+        if (scrollS <= 1) {
+          // 在顶部时：蓝色背景 + 白色文字
           setFixedNav(true)
+          setBgWhite(false)
           setTextWhite(true)
+        } else {
+          // 滚动时：白色背景 + 黑色文字
+          setFixedNav(true)
+          setBgWhite(true)
+          setTextWhite(false)
         }
       } else {
-        // 向下滚动后的导航样式
-        setFixedNav(true)
-        setTextWhite(false)
-        setBgWhite(true)
+        // 非文章详情页的正常逻辑
+        if (scrollS <= 1) {
+          setFixedNav(false)
+          setBgWhite(false)
+          setTextWhite(false)
+        } else {
+          setFixedNav(true)
+          setTextWhite(false)
+          setBgWhite(true)
+        }
       }
     }, 100),
     [props.post]
@@ -137,7 +145,7 @@ const Header = props => {
       `}</style>
 
       {/* fixed时留白高度 */}
-      {fixedNav && !document?.querySelector('#post-bg') && (
+      {fixedNav && !props.post && (
         <div className='h-16'></div>
       )}
 
@@ -151,7 +159,7 @@ const Header = props => {
         <div className='flex h-full mx-auto justify-between items-center max-w-[86rem] px-12'>
           {/* 左侧logo */}
           <div className='flex flex-shrink-0 justify-start items-center w-48'>
-            <Logo {...props} />
+            <Logo {...props} textWhite={textWhite} />
           </div>
 
           {/* 中间菜单 */}
@@ -160,7 +168,7 @@ const Header = props => {
             className={`hidden lg:flex flex-grow flex-col items-center justify-center h-full relative w-full`}>
             <div
               className={`absolute transition-all duration-700 ${activeIndex === 0 ? 'opacity-100 mt-0' : '-mt-20 opacity-0 invisible'}`}>
-              <MenuListTop {...props} />
+              <MenuListTop {...props} textWhite={textWhite} />
             </div>
             <div
               className={`absolute transition-all duration-700 ${activeIndex === 1 ? 'opacity-100 mb-0' : '-mb-20 opacity-0 invisible'}`}>
@@ -174,11 +182,11 @@ const Header = props => {
           {/* 右侧固定 */}
           <div className='flex flex-shrink-0 justify-end items-center min-w-56 gap-2 pr-0'>
             <div className='flex items-center gap-1'>
-              <RandomPostButton {...props} />
-              <SearchButton {...props} />
+              <RandomPostButton {...props} textWhite={textWhite} />
+              <SearchButton {...props} textWhite={textWhite} />
               {!JSON.parse(siteConfig('THEME_SWITCH')) && (
                 <div className='hidden md:block'>
-                  <DarkModeButton {...props} />
+                  <DarkModeButton {...props} textWhite={textWhite} />
                 </div>
               )}
               <ReadingProgress />
@@ -187,7 +195,7 @@ const Header = props => {
             {/* 移动端菜单按钮 */}
             <div
               onClick={toggleMenuOpen}
-              className='flex lg:hidden w-8 justify-center items-center h-8 cursor-pointer ml-2'>
+              className={`flex lg:hidden w-8 justify-center items-center h-8 cursor-pointer ml-2 ${textWhite ? 'text-white' : 'text-black dark:text-white'}`}>
                 <span className="iconfont icon-caidan"></span>
             </div>
           </div>

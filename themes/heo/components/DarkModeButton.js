@@ -7,7 +7,7 @@ import { useImperativeHandle } from 'react'
  * 深色模式按钮
  */
 const DarkModeButton = (props) => {
-  const { cRef, className } = props
+  const { cRef, className, textWhite } = props
   const { isDarkMode, updateDarkMode } = useGlobal()
 
   /**
@@ -31,7 +31,7 @@ const DarkModeButton = (props) => {
     htmlElement.classList?.add(newStatus ? 'dark' : 'light')
   }
 
-  return <div onClick={handleChangeDarkMode} className={`${className || ''} cursor-pointer hover: scale-100 hover:bg-black hover:bg-opacity-10 rounded-full w-10 h-10 flex justify-center items-center duration-200 transition-all`}>
+  return <div onClick={handleChangeDarkMode} className={`${className || ''} cursor-pointer hover: scale-100 hover:bg-black hover:bg-opacity-10 rounded-full w-10 h-10 flex justify-center items-center duration-200 transition-all ${textWhite ? 'text-white' : 'text-gray-600 dark:text-gray-300'}`}>
     <div id='darkModeButton' className=' cursor-pointer hover: scale-50 w-10 h-10 '> {isDarkMode ? <Sun /> : <Moon />}</div>
   </div>
 }

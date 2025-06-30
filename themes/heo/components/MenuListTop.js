@@ -4,7 +4,7 @@ import CONFIG from '../config'
 import { MenuItemDrop } from './MenuItemDrop'
 
 export const MenuListTop = props => {
-  const { customNav, customMenu } = props
+  const { customNav, customMenu, textWhite } = props
   const { locale } = useGlobal()
 
   let links = [
@@ -52,7 +52,7 @@ export const MenuListTop = props => {
         style={{ fontSize: '18px', fontWeight: '700' }}>
         {links?.map(
           (link, index) =>
-            link && link.show && <MenuItemDrop key={index} link={link} />
+            link && link.show && <MenuItemDrop key={index} link={link} textWhite={textWhite} />
         )}
       </nav>
     </>

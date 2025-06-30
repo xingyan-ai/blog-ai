@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import { useState, useEffect, useRef } from 'react'
 
-export const MenuItemDrop = ({ link }) => {
+export const MenuItemDrop = ({ link, textWhite }) => {
   const [show, changeShow] = useState(false)
   const [borderColor, setBorderColor] = useState('#425AEF')
   const submenuRef = useRef(null)
@@ -38,7 +38,7 @@ export const MenuItemDrop = ({ link }) => {
                 <Link
           target={link?.target}
           href={link?.href}
-          className='menu-item-simple flex justify-center items-center px-4 py-1.5 no-underline tracking-widest transition-all duration-75 text-gray-800 dark:text-gray-200'
+          className={`menu-item-simple flex justify-center items-center px-4 py-1.5 no-underline tracking-widest transition-all duration-75 ${textWhite ? 'text-white' : 'text-gray-800 dark:text-gray-200'}`}
           style={{
             borderRadius: '50px',
             fontSize: '18px',
@@ -51,7 +51,7 @@ export const MenuItemDrop = ({ link }) => {
       {hasSubMenu && (
         <>
                     <div 
-            className='menu-item-dropdown cursor-pointer flex justify-center items-center px-4 py-1.5 no-underline tracking-widest transition-all duration-75 relative text-gray-800 dark:text-gray-200'
+            className={`menu-item-dropdown cursor-pointer flex justify-center items-center px-4 py-1.5 no-underline tracking-widest transition-all duration-75 relative ${textWhite ? 'text-white' : 'text-gray-800 dark:text-gray-200'}`}
             style={{
               borderRadius: '50px',
               fontSize: '18px',
