@@ -6,6 +6,10 @@ export default function Document() {
     return (
       <Html lang={BLOG.LANG}>
         <Head>
+        {/* Favicon */}
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <link rel="icon" type="image/png" href="/favicon.png" />
+        
         {/* 添加iconfont直接引用链接，确保加载 */}
         <link rel="stylesheet" href="https://at.alicdn.com/t/c/font_4902131_mf5n8tfonf.css" />
         {/* 添加FontAwesome CSS */}

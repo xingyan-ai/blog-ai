@@ -16,9 +16,10 @@ const BLOG = {
 
   AUTHOR: process.env.NEXT_PUBLIC_AUTHOR || '星彦', // 您的昵称 
   BIO: process.env.NEXT_PUBLIC_BIO || '一直在路上', // 作者简介
+  AVATAR: process.env.NEXT_PUBLIC_AVATAR || '/avatar.jpg', // 作者头像
   LINK: process.env.NEXT_PUBLIC_LINK || 'https://blog.xingyan.me', // 网站地址
   KEYWORDS: process.env.NEXT_PUBLIC_KEYWORD || 'Notion, 博客,AI,大模型,产品', // 网站关键词 英文逗号隔开
-  BLOG_FAVICON: process.env.NEXT_PUBLIC_FAVICON || 'data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📚</text></svg>', // 使用博客emoji作为favicon
+  BLOG_FAVICON: process.env.NEXT_PUBLIC_FAVICON || '/favicon.svg', // 使用自定义的博客图标作为favicon
   BEI_AN: process.env.NEXT_PUBLIC_BEI_AN || '', // 备案号 闽ICP备XXXXXX
   BEI_AN_LINK: process.env.NEXT_PUBLIC_BEI_AN_LINK || 'https://beian.miit.gov.cn/', // 备案查询链接，如果用了萌备等备案请在这里填写
 
