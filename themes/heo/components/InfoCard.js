@@ -30,9 +30,9 @@ export function InfoCard(props) {
         <GreetingsWords />
         {/* 头像 */}
         <div
-          className={`${isSlugPage ? 'absolute right-0 -mt-8 -mr-6 hover:opacity-0 hover:scale-150 blur' : 'cursor-pointer'} justify-center items-center flex dark:text-gray-100 transform transitaion-all duration-200`}>
+          className={`${isSlugPage ? 'absolute right-0 -mt-8 -mr-6 hover:opacity-0 hover:scale-150' : 'cursor-pointer'} justify-center items-center flex dark:text-gray-100 transform transitaion-all duration-200 z-10`}>
           <LazyImage
-            src={siteInfo?.icon}
+            src={isSlugPage ? '/白改.png?v=2025070201' : siteInfo?.icon}
             className='rounded-full'
             width={isSlugPage ? 100 : 42}
             alt={siteConfig('AUTHOR')}
