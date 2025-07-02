@@ -36,7 +36,7 @@ const Header = props => {
     throttle(() => {
       const scrollS = window.scrollY
       // 使用post来判断是否是文章详情页
-      const isPostPage = props.post && document?.querySelector('#post-bg')
+      const isPostPage = props.post && (typeof document !== 'undefined' && document?.querySelector('#post-bg'))
       
       if (isPostPage) {
         // 文章详情页的特殊逻辑
