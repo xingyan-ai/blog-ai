@@ -22,98 +22,77 @@ export function InfoCard(props) {
   const icon1 = siteConfig('HEO_INFO_CARD_ICON1', null, CONFIG)
   const url2 = siteConfig('HEO_INFO_CARD_URL2', null, CONFIG)
   const icon2 = siteConfig('HEO_INFO_CARD_ICON2', null, CONFIG)
+  
+  // 控制hover状态
+  const [isHovered, setIsHovered] = useState(false)
+
   return (
     <Card className={`wow fadeInUp bg-[#4f65f0] dark:bg-yellow-600 text-white flex flex-col overflow-hidden relative ${props.className || 'w-72'}`}>
-      {/* 信息卡牌第一行 */}
-      <div className='flex justify-between'>
-        {/* 问候语 */}
-        <GreetingsWords />
-        {/* 头像 */}
-        <div
-          className={`${isSlugPage ? 'absolute right-0 -mt-8 -mr-6 hover:opacity-0 hover:scale-150' : 'cursor-pointer'} justify-center items-center flex dark:text-gray-100 transform transitaion-all duration-200 z-10`}>
+      
+      {/* 中心区域 - 头像和悬停文字 */}
+      <div 
+        className="relative flex-1 flex items-center justify-center min-h-[200px] cursor-pointer"
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
+      >
+        {/* 头像 - 默认显示 */}
+        <div 
+          className={`absolute inset-0 flex items-center justify-center transition-all duration-500 ease-in-out ${
+            isHovered ? 'opacity-0 scale-110' : 'opacity-100 scale-100'
+          }`}
+        >
           <LazyImage
             src={siteInfo?.icon}
-            className='rounded-full'
-            width={isSlugPage ? 100 : 42}
+            className='rounded-full border-white'
+            style={{ borderWidth: '3px' }}
+            width={135}
             alt={siteConfig('AUTHOR')}
           />
         </div>
+        
+        {/* 悬停文字内容 */}
+        <div 
+          className={`absolute inset-0 flex items-start justify-center pt-4 px-1 transition-all duration-500 ease-in-out ${
+            isHovered ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
+          }`}
+        >
+          <p className="text-left text-sm font-medium leading-relaxed">
+            这里有关于产品、设计、开发、增长等一站式内容。
+            <br />
+            <br />
+            涉及个人的所思所想以及国内外优秀产品和文章解读。
+          </p>
+        </div>
       </div>
 
-      <h2 className='text-3xl font-extrabold mt-3'>{siteConfig('AUTHOR')}</h2>
-
-      {/* 公告栏 */}
-      <Announcement post={notice} style={{ color: 'white !important' }} />
-
-      <div className='flex justify-between'>
-        <div className='flex space-x-3  hover:text-black dark:hover:text-white'>
-          {/* 两个社交按钮 */}
+      {/* 底部区域 */}
+      <div className='flex justify-between items-end px-1 pb-1'>
+        {/* 左侧 - 名称和副标题 */}
+        <div className='flex flex-col justify-center h-8'>
+          <h4 className='text-base font-bold leading-tight mb-1'>星彦</h4>
+          <p className='opacity-90 whitespace-nowrap leading-none' style={{ fontSize: '12px' }}>助您成为超级个体</p>
+        </div>
+        
+        {/* 右侧 - 社交图标 */}
+        <div className='flex space-x-2 mr-1'>
+          {/* 个人图标 */}
           {url1 && (
-            <div className='w-10 text-center bg-indigo-400 p-2 rounded-full  transition-colors duration-200 dark:bg-yellow-500 dark:hover:bg-black hover:bg-white'>
-              <Link href={url1}>
+            <div className='w-8 h-8 text-center bg-indigo-400 p-2 rounded-full transition-colors duration-200 dark:bg-yellow-500 dark:hover:bg-black hover:bg-white hover:text-black dark:hover:text-white flex items-center justify-center'>
+              <Link href={url1} target="_blank" rel="noopener noreferrer">
                 <i className={icon1} />
               </Link>
             </div>
           )}
+          {/* GitHub图标 */}
           {url2 && (
-            <div className='bg-indigo-400 p-2 rounded-full w-10 items-center flex justify-center transition-colors duration-200 dark:bg-yellow-500 dark:hover:bg-black hover:bg-white'>
-              <Link href={url2}>
+            <div className='w-8 h-8 bg-indigo-400 p-2 rounded-full transition-colors duration-200 dark:bg-yellow-500 dark:hover:bg-black hover:bg-white hover:text-black dark:hover:text-white flex items-center justify-center'>
+              <Link href={url2} target="_blank" rel="noopener noreferrer">
                 <i className={icon2} />
               </Link>
             </div>
           )}
         </div>
-        {/* 第三个按钮 */}
-        <MoreButton />
       </div>
     </Card>
-  )
-}
-
-/**
- * 了解更多按鈕
- * @returns
- */
-function MoreButton() {
-  const url3 = siteConfig('HEO_INFO_CARD_URL3', null, CONFIG)
-  const text3 = siteConfig('HEO_INFO_CARD_TEXT3', null, CONFIG)
-  if (!url3) {
-    return <></>
-  }
-  return (
-    <Link href={url3}>
-      <div
-        className={
-          'group bg-indigo-400 dark:bg-yellow-500 hover:bg-white dark:hover:bg-black hover:text-black dark:hover:text-white flex items-center transition-colors duration-200 py-2 px-3 rounded-full space-x-1'
-        }>
-        <ArrowRightCircle
-          className={
-            'group-hover:stroke-black dark:group-hover:stroke-white w-6 h-6 transition-all duration-100'
-          }
-        />
-        <div className='font-bold'>{text3}</div>
-      </div>
-    </Link>
-  )
-}
-
-/**
- * 欢迎语
- */
-function GreetingsWords() {
-  const greetings = siteConfig('HEO_INFOCARD_GREETINGS', null, CONFIG)
-  const [greeting, setGreeting] = useState(greetings[0])
-  // 每次点击，随机获取greetings中的一个
-  const handleChangeGreeting = () => {
-    const randomIndex = Math.floor(Math.random() * greetings.length)
-    setGreeting(greetings[randomIndex])
-  }
-
-  return (
-    <div
-      onClick={handleChangeGreeting}
-      className=' select-none cursor-pointer py-1 px-2 bg-indigo-400 hover:bg-indigo-50  hover:text-indigo-950 dark:bg-yellow-500 dark:hover:text-white dark:hover:bg-black text-sm rounded-lg  duration-200 transition-colors'>
-      {greeting}
-    </div>
   )
 }

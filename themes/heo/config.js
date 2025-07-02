@@ -46,7 +46,7 @@ const CONFIG = {
   ],
 
   // 个人资料底部按钮
-  HEO_INFO_CARD_URL1: '/',
+  HEO_INFO_CARD_URL1: 'https://about.xingyan.me',
   HEO_INFO_CARD_ICON1: 'fas fa-user',
   HEO_INFO_CARD_URL2: 'https://github.com/xingyan-ai',
   HEO_INFO_CARD_ICON2: 'fab fa-github',
@@ -121,14 +121,14 @@ const CONFIG = {
   HEO_SOCIAL_CARD_URL_1: 'https://docs.tangly1024.com/article/wechat-mp',
   HEO_SOCIAL_CARD_BG_COLOR_1: '#36B37E',
   HEO_SOCIAL_CARD_WECHAT_ICON: '/images/wechat.png',
-  HEO_SOCIAL_CARD_PUBLIC_QRCODE: '/qrcode.png', // 公众号二维码图片
+  HEO_SOCIAL_CARD_PUBLIC_QRCODE: '/二维码.jpg', // 公众号二维码图片
   
   // 扫一扫卡片配置
   HEO_SOCIAL_CARD_TITLE_2: '扫一扫',
   HEO_SOCIAL_CARD_SUBTITLE_2: '不错过精彩文章 ▶',
   HEO_SOCIAL_CARD_URL_2: 'https://docs.tangly1024.com/article/wechat-mp',
   HEO_SOCIAL_CARD_BG_COLOR_2: '#36B37E',
-  HEO_SOCIAL_CARD_QRCODE: '/qrcode.png', // 二维码图片地址
+  HEO_SOCIAL_CARD_QRCODE: '/二维码.jpg', // 二维码图片地址
 
   // 以下配置项已不再使用，但保留为了向后兼容
   HEO_SOCIAL_CARD_TITLE_3: '点击加入社群',
