@@ -24,8 +24,10 @@ const BlogPostListPage = ({ page = 1, posts = [], postCount, siteInfo }) => {
   // 根据三列或两列配置决定使用的grid样式
   let gridClass = 'grid-cols-1'
   if (POST_THREE_COLS) {
-    gridClass = 'md:grid md:grid-cols-3'
+    // 三列配置：中等屏幕2列，大屏幕(≥1280px)3列
+    gridClass = 'md:grid md:grid-cols-2 xl:grid-cols-3'
   } else if (POST_TWO_COLS) {
+    // 两列配置：中等屏幕及以上2列
     gridClass = 'md:grid md:grid-cols-2'
   }
 

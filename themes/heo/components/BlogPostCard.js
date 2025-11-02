@@ -30,10 +30,8 @@ const BlogPostCard = ({ index, post, showSummary, siteInfo }) => {
 
   // 根据列数配置调整卡片样式
   const getCardHeight = () => {
-    if (POST_THREE_COLS) {
-      return 'h-60 min-h-60 md:h-60' // 三列时使用较小高度 240px
-    } else if (POST_TWO_COLS) {
-      return 'h-72 min-h-72 md:h-72' // 两列时使用原有高度 288px
+    if (POST_THREE_COLS || POST_TWO_COLS) {
+      return '' // 多列时不设置固定高度，让 aspect-ratio 自然控制
     } else {
       return 'h-72 min-h-72 md:h-72' // 一列时保持原有高度
     }
