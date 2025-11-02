@@ -211,6 +211,22 @@ const nextConfig = {
 
     if (!isServer) {
       console.log('[默认主题]', path.resolve(__dirname, 'themes', THEME))
+      // 在客户端构建时忽略 Node.js 内置模块
+      config.resolve.fallback = {
+        ...config.resolve.fallback,
+        fs: false,
+        net: false,
+        tls: false,
+        crypto: false,
+        stream: false,
+        url: false,
+        zlib: false,
+        http: false,
+        https: false,
+        assert: false,
+        os: false,
+        path: false,
+      }
     }
     config.resolve.alias['@theme-components'] = path.resolve(
       __dirname,
