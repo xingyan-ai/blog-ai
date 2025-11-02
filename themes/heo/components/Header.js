@@ -68,7 +68,7 @@ const Header = props => {
   )
   useEffect(() => {
     scrollTrigger()
-  }, [router])
+  }, [router, scrollTrigger])
 
   // 监听滚动
   useEffect(() => {
@@ -76,7 +76,7 @@ const Header = props => {
     return () => {
       window.removeEventListener('scroll', scrollTrigger)
     }
-  }, [])
+  }, [scrollTrigger])
 
   // 导航栏根据滚动轮播菜单内容
   useEffect(() => {

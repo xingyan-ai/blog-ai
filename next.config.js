@@ -261,6 +261,10 @@ const nextConfig = {
   publicRuntimeConfig: {
     // 这里的配置既可以服务端获取到，也可以在浏览器端获取到
     THEMES: themes
+  },
+  experimental: {
+    // 增加页面数据大小限制以支持大型 Notion 页面
+    largePageDataBytes: 1024 * 1024 // 1MB (1024KB) - 适合包含数据库的 Notion 页面
   }
 }
 

@@ -37,8 +37,8 @@ const Logo = props => {
               </>
             )}
           </div>
-          <div className='flex justify-center items-center rounded-2xl group-hover:bg-indigo-600 dark:group-hover:bg-yellow-600 w-full h-8 group-hover:opacity-100 opacity-0 invisible group-hover:visible absolute top-0 duration-200'>
-            <i className="fas fa-home text-white text-lg"></i>
+          <div className='flex justify-center items-center rounded-full group-hover:bg-indigo-600 dark:group-hover:bg-yellow-600 w-8 h-8 group-hover:opacity-100 opacity-0 invisible group-hover:visible absolute top-0 left-0 duration-200'>
+            <i className="fas fa-home text-white text-base"></i>
           </div>
         </div>
       </div>

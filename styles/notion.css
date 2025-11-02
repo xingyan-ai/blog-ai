@@ -732,6 +732,7 @@ svg.notion-page-icon {
   word-break: break-word;
   padding: 3px 2px !important;
   margin: 1px 0 !important;
+  font-weight: 400;
 }
 
 .notion-text:first-child {

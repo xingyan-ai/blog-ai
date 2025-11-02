@@ -60,6 +60,16 @@ const BlogPostListScroll = ({
 
   const targetRef = useRef(null)
   const POST_TWO_COLS = siteConfig('HEO_HOME_POST_TWO_COLS', true, CONFIG)
+  const POST_THREE_COLS = siteConfig('HEO_HOME_POST_THREE_COLS', false, CONFIG)
+  
+  // 根据三列或两列配置决定使用的grid样式
+  let gridClass = 'grid-cols-1'
+  if (POST_THREE_COLS) {
+    gridClass = 'md:grid md:grid-cols-3'
+  } else if (POST_TWO_COLS) {
+    gridClass = 'md:grid md:grid-cols-2'
+  }
+
   if (!postsToShow || postsToShow.length === 0) {
     return <BlogPostListEmpty currentSearch={currentSearch} />
   } else {
@@ -67,7 +77,7 @@ const BlogPostListScroll = ({
       <div id='container' ref={targetRef} className='w-full'>
         {/* 文章列表 */}
         <div
-          className={`${POST_TWO_COLS && 'md:grid md:grid-cols-2'} grid-cols-1 gap-5`}>
+          className={`${gridClass} gap-5`}>
           {' '}
           {postsToShow.map(post => (
             <BlogPostCard

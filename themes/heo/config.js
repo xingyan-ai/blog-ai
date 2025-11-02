@@ -1,5 +1,6 @@
 const CONFIG = {
-  HEO_HOME_POST_TWO_COLS: true, // 首页博客两列显示，若为false则只显示一列
+  HEO_HOME_POST_TWO_COLS: false, // 首页博客两列显示，若为false则只显示一列
+  HEO_HOME_POST_THREE_COLS: true, // 首页博客三列显示，优先级高于TWO_COLS
   HEO_LOADING_COVER: true, // 页面加载的遮罩动画
 
   HEO_HOME_BANNER_ENABLE: true,
@@ -121,14 +122,14 @@ const CONFIG = {
   HEO_SOCIAL_CARD_URL_1: 'https://docs.tangly1024.com/article/wechat-mp',
   HEO_SOCIAL_CARD_BG_COLOR_1: '#36B37E',
   HEO_SOCIAL_CARD_WECHAT_ICON: '/images/wechat.png',
-  HEO_SOCIAL_CARD_PUBLIC_QRCODE: '/二维码.jpg', // 公众号二维码图片
+  HEO_SOCIAL_CARD_PUBLIC_QRCODE: '/wechat-qr-code.jpg', // 公众号二维码图片
   
   // 扫一扫卡片配置
   HEO_SOCIAL_CARD_TITLE_2: '扫一扫',
   HEO_SOCIAL_CARD_SUBTITLE_2: '不错过精彩文章 ▶',
   HEO_SOCIAL_CARD_URL_2: 'https://docs.tangly1024.com/article/wechat-mp',
   HEO_SOCIAL_CARD_BG_COLOR_2: '#36B37E',
-  HEO_SOCIAL_CARD_QRCODE: '/二维码.jpg', // 二维码图片地址
+  HEO_SOCIAL_CARD_QRCODE: '/wechat-qr-code.jpg', // 二维码图片地址
 
   // 以下配置项已不再使用，但保留为了向后兼容
   HEO_SOCIAL_CARD_TITLE_3: '点击加入社群',
