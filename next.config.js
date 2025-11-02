@@ -217,6 +217,7 @@ const nextConfig = {
         fs: false,
         net: false,
         tls: false,
+        dns: false,
         crypto: false,
         stream: false,
         url: false,
@@ -226,6 +227,8 @@ const nextConfig = {
         assert: false,
         os: false,
         path: false,
+        child_process: false,
+        worker_threads: false,
       }
     }
     config.resolve.alias['@theme-components'] = path.resolve(
